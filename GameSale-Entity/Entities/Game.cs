@@ -13,7 +13,7 @@
 
         public int Discount { get; set; }
 
-        public string ImgUrl { get; set; }
+        
 
         public string Developer { get; set; }
         public int PublisherId { get; set; }
@@ -26,5 +26,6 @@
         public virtual Category Category { get; set; }
 
         public Publisher Publisher { get; set; }
+        public ICollection<Image> Images { get; set; }
     }
 }

@@ -4,6 +4,6 @@ namespace GameSale_Entity.Interfaces
 {
     public interface IGameRepository : IGenericRepository<Game>
     {
-
+        IEnumerable<Game> GetAllWithImages();
     }
 }

@@ -40,9 +40,16 @@
 
                         </td>
                         <td>
-                            @if (!string.IsNullOrEmpty(item.ImgUrl))
+                            @if (item.Images !=null && item.Images.Any())
                             {
-                                <img src="~/images/@item.ImgUrl" alt="@item.GameName" style="width:100px" ; height="auto" ; />
+
+                                <div class="d-flex flex-wrap">
+                                    @foreach(var image in item.Images)
+                                    {
+                                        <img src="@Url.Content(image.ImageUrl)" alt="@item.GameName" style="width:100px" ; height="auto" ; />
+
+                                    }
+                                </div>
                             }
                         </td>
                         <td>

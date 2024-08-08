@@ -14,10 +14,9 @@ namespace GameSale_Mvc.Controllers
         }
         public IActionResult Index()
         {
-            var result = unitOfWork.Game.GetAll();
-            var randomGames = GetRandomGames(result, 3); // Get 3 random games for the carousel
-            ViewBag.RandomGames = randomGames;
-            return View(result);
+            var games = unitOfWork.Game.GetAllWithImages().ToList();
+
+            return View(games);
         }
         private List<Game> GetRandomGames(List<Game> games, int count)
         {
