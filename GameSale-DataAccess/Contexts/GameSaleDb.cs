@@ -2,15 +2,10 @@
 using GameSale_Entity.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameSale_DataAccess.Contexts
 {
-    public class GameSaleDb : IdentityDbContext<AppUser,AppRole,int>
+    public class GameSaleDb : IdentityDbContext<AppUser, AppRole, int>
     {
 
         public GameSaleDb(DbContextOptions<GameSaleDb> options) : base(options)
@@ -38,9 +33,9 @@ namespace GameSale_DataAccess.Contexts
             modelBuilder.Entity<Customer>().
                 Property(m => m.ProfilePicture).HasDefaultValue("/images/customerpic.jpg");
             modelBuilder.Entity<Game>().
-                HasOne(g=>g.Publisher).
-                WithMany(p=> p.Games).
-                HasForeignKey(g=>g.PublisherId);
+                HasOne(g => g.Publisher).
+                WithMany(p => p.Games).
+                HasForeignKey(g => g.PublisherId);
             modelBuilder.Entity<Game>()
             .HasOne(g => g.Category) // Each game has one category
             .WithMany(c => c.Games)  // Each category can have many games
@@ -92,15 +87,15 @@ namespace GameSale_DataAccess.Contexts
                 new Game { Id = 10, GameName = "Stardew Valley", CategoryId = 2, Description = "A farming simulation game", Price = 14.99M, Discount = 0, ImgUrl = "stardewvalley.jpg", Developer = "ConcernedApe", PublisherId = 8, ReleaseDate = new DateTime(2016, 2, 26), Platform = "PC" }
             );
             modelBuilder.Entity<Publisher>().HasData(
-                new Publisher { Id =1 , Name = "CD Projekt" },
-                new Publisher { Id =2 , Name = "Rockstar Games" },
-                new Publisher { Id =3 , Name = "2K Games" },
-                new Publisher { Id =4 , Name = "Electronic Arts" },
-                new Publisher { Id =5 , Name = "Bandai Namco Entertainment" },
-                new Publisher { Id =6 , Name = "Mojang" },
-                new Publisher { Id =7 , Name = "Epic Games" },
-                new Publisher { Id =8 , Name = "ConcernedApe" }
-                
+                new Publisher { Id = 1, Name = "CD Projekt" },
+                new Publisher { Id = 2, Name = "Rockstar Games" },
+                new Publisher { Id = 3, Name = "2K Games" },
+                new Publisher { Id = 4, Name = "Electronic Arts" },
+                new Publisher { Id = 5, Name = "Bandai Namco Entertainment" },
+                new Publisher { Id = 6, Name = "Mojang" },
+                new Publisher { Id = 7, Name = "Epic Games" },
+                new Publisher { Id = 8, Name = "ConcernedApe" }
+
                 );
             base.OnModelCreating(modelBuilder);
         }

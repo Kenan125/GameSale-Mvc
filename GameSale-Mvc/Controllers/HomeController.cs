@@ -1,8 +1,6 @@
-using GameSale_DataAccess.Contexts;
 using GameSale_Entity.Entities;
 using GameSale_Entity.UnitOfWorks;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace GameSale_Mvc.Controllers
 {
@@ -17,8 +15,14 @@ namespace GameSale_Mvc.Controllers
         public IActionResult Index()
         {
             var result = unitOfWork.Game.GetAll();
+            var randomGames = GetRandomGames(result, 3); // Get 3 random games for the carousel
+            ViewBag.RandomGames = randomGames;
             return View(result);
         }
-
+        private List<Game> GetRandomGames(List<Game> games, int count)
+        {
+            var random = new Random();
+            return games.OrderBy(x => random.Next()).Take(count).ToList();
+        }
     }
 }

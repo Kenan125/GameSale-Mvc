@@ -1,10 +1,10 @@
 using GameSale_DataAccess.Contexts;
 using GameSale_DataAccess.Repositories;
-using Microsoft.EntityFrameworkCore;
+using GameSale_DataAccess.UnitOfWorks;
 using GameSale_Entity.Interfaces;
 using GameSale_Entity.UnitOfWorks;
-using GameSale_DataAccess.UnitOfWorks;
 using GameSale_Service.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameSale_Mvc
 {

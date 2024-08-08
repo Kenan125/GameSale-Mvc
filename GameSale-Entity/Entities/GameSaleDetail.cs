@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameSale_Entity.Entities
+﻿namespace GameSale_Entity.Entities
 {
     public class GameSaleDetail
     {
@@ -19,8 +12,8 @@ namespace GameSale_Entity.Entities
         public DateTime PurchaseDate { get; set; }
 
         public virtual GameSale GameSale { get; set; }
-        
+
         public virtual Game Game { get; set; }
-        
+
     }
 }

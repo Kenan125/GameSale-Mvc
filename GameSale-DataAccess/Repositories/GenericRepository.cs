@@ -1,11 +1,6 @@
 ﻿using GameSale_DataAccess.Contexts;
 using GameSale_Entity.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameSale_DataAccess.Repositories
 {
@@ -22,7 +17,7 @@ namespace GameSale_DataAccess.Repositories
         public List<T> GetAll()
         {
             return _dbSet.ToList();
-            
+
         }
         public T GetbyId(int id)
         {

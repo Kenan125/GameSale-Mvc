@@ -1,13 +1,8 @@
 ﻿using GameSale_Entity.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameSale_Entity.UnitOfWorks
 {
-    public interface IUnitOfWork:IDisposable
+    public interface IUnitOfWork : IDisposable
     {
         IGameRepository Game { get; }
         ICustomerRepository Customer { get; }

@@ -1,58 +1,91 @@
 ﻿@model IEnumerable<GameSale_Entity.Entities.Game>
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <h2>Game List</h2>
-        </div>
-        <div class="col-6">
-            <a asp-controller="Game" asp-action="Crup" class="btn btn-primary">
-                <span>Add New Game</span>
-            </a>
-        </div>
+
+@{
+    ViewData["Title"] = "Home";
+    var causGames = Model.Where(g => g.ImgUrl.Contains("Caus")).ToList(); // Filter games with "Caus" in ImgUrl
+}
+
+<!-- Carousel for Featured Games -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        @for (int i = 0; i < causGames.Count(); i++)
+        {
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-current="@(i == 0 ? "true" : "false")" aria-label="Slide @(i + 1)"></button>
+        }
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        
     </div>
+    <div class="carousel-inner">
+        @foreach (var game in causGames.Select((value,index)=>new{Value=value,Index=index}))
+        {
+            <div class="carousel-item @(game.Index==0 ? "active" : "")">
+                <img src="@Url.Content(game.Value.ImgUrl)" class="d-block w-100" alt="Featured Game 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>@game.Value.GameName</h5>
+                    <p>@game.Value.Description</p>
+                </div>
+            </div>
+        }        
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- Sections for Game Categories -->
+<div class="container mt-5">
+    <h2>Featured Games</h2>
     <div class="row">
-        <table class="table table-bordered table-striped my-2">
-            <thead>
-                <tr>
-                    <th>Game Name</th>
-                    <th>Game Image</th>
-                    <th>Game Price</th>
-                    <th>Game Developer</th>
-                    <th>Game Publisher</th>
-
-                    <th>Release Date</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-
-                        <td>
-                            @item.GameName
-                            
-                        </td>
-                        <td>
-                            @if (!string.IsNullOrEmpty(item.ImgUrl))
-                            {
-                                <img src ="~/images/@item.ImgUrl" alt="@item.GameName" style="width:100px"; height="auto"; />
-                            }
-                        </td>
-                        <td>
-                            @(item.Price == 0.00m ? "Free" : item.Price.ToString("C"))
-                        </td>
-                        <td>
-                            @item.Developer
-                        </td>
-                        <td>
-                            @item.Publisher
-                        </td>
-                        <td>@item.ReleaseDate.ToString("dd MMMM yyyy")</td>
-
-                    </tr>
-                }
-            </tbody>
-        </table>
+        @foreach (var game in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm w-75" >
+                    <div class="card-img-container">
+                    <a href="@Url.Action("Details", "Game", new { id = game.Id })">
+                        <img src="~/images/@game.ImgUrl" class="bd-placeholder-img card-img-top" width="100%" alt="@game.GameName">
+                            <div class="card-img-overlay"></div>
+                    </a></div>
+                    <div class="card-body">
+                        <h5 class="card-title">@game.GameName</h5>
+                        <p class="card-text">@game.Description</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                
+                                <a href="#" class="btn btn-sm btn-outline-primary">Add to Cart</a>
+                            </div>
+                            <small class="text-muted">$@game.Price</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
+
+<div class="container mt-5">
+    <h2>Top Categories</h2>
+    <div class="row">
+        <!-- Example category section -->
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="~/images/category1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Category 1">
+                <div class="card-body">
+                    <h5 class="card-title">Action</h5>
+                    <p class="card-text">Explore the best action games.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="@Url.Action("Games", "Category", new { categoryId = 1 })" class="btn btn-sm btn-outline-secondary">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add more categories as needed -->
+    </div>
+</div>
+
