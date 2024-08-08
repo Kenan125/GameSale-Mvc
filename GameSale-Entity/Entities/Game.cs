@@ -23,13 +23,15 @@ namespace GameSale_Entity.Entities
         public string ImgUrl { get; set; }
 
         public string Developer { get; set; }
-        public string Publisher { get; set; }
+        public int PublisherId { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Platform { get; set; }
 
 
 
-        [ForeignKey("CategoryId")]
+        
         public virtual Category Category { get; set; }
+
+        public Publisher Publisher { get; set; }
     }
 }

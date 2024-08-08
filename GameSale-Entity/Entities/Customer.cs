@@ -18,5 +18,7 @@ namespace GameSale_Entity.Entities
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        public virtual List<GameSale> GameSales { get; set; }
     }
 }

@@ -16,11 +16,11 @@ namespace GameSale_Entity.Entities
         public decimal UnitPrice { get; set; }
         public bool IsRefundable { get; set; }
 
-
-        [ForeignKey("GameSaleId")]
-        public virtual GameSale GameSale { get; set; }
-        [ForeignKey("GameId")]
-        public virtual Game Game { get; set; }
         public DateTime PurchaseDate { get; set; }
+
+        public virtual GameSale GameSale { get; set; }
+        
+        public virtual Game Game { get; set; }
+        
     }
 }

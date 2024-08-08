@@ -22,7 +22,7 @@ namespace GameSale_DataAccess.Repositories
         public List<T> GetAll()
         {
             return _dbSet.ToList();
-            //return _context.Set<T>().ToList();
+            
         }
         public T GetbyId(int id)
         {
