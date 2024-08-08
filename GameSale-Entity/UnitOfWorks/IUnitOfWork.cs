@@ -11,6 +11,8 @@ namespace GameSale_Entity.UnitOfWorks
         IGameSaleRepository GameSale { get; }
         IReviewRepository Review { get; }
         ISystemRepository System { get; }
+        IPublisherRepository Publisher { get; }
+        IImageRepository Image { get; }
         void Save();
     }
 }

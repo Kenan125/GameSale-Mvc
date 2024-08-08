@@ -22,6 +22,8 @@ namespace GameSale_DataAccess.UnitOfWorks
         public IGameSaleRepository GameSale => new GameSaleRepository(db);
         public IReviewRepository Review => new ReviewRepository(db);
         public ISystemRepository System => new SystemRepository(db);
+        public ISystemRepository Publisher => new SystemRepository(db);
+        public ISystemRepository Image => new SystemRepository(db);
 
         public void Save()
         {

@@ -59,7 +59,7 @@
                             <div class="btn-group">
                                 <a href="#" class="btn btn-sm btn-outline-primary">Add to Cart</a>
                             </div>
-                            <small class="text-muted">$@game.Price</small>
+                            <small class="text-muted">@(game.Price == 0.00m ? "Free" : game.Price.ToString("C"))</small>
                         </div>
                     </div>
                 </div>
