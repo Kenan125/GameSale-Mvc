@@ -31,7 +31,7 @@
                             @item.GameName
                         </td>
                         <td>
-                            @item.Price
+                            @(item.Price == 0.00m ? "Free" : item.Price.ToString("C"))
                         </td>
                         <td>
                             @item.Developer
@@ -39,7 +39,7 @@
                         <td>
                             @item.Publisher
                         </td>
-                        <td>@item.ReleaseDate</td>
+                        <td>@item.ReleaseDate.ToString("dd MMMM yyyy")</td>
 
                     </tr>
                 }
