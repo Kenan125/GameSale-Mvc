@@ -13,6 +13,6 @@
         public string PhoneNumber { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
-        public virtual List<GameSale> GameSales { get; set; }
+        public ICollection<GameSale> GameSales { get; set; }
     }
 }
