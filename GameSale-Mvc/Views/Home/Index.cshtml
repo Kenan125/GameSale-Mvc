@@ -19,6 +19,7 @@
             <div class="carousel-item @(image.Index == 0 ? "active" : "")">
                 <img src="@Url.Content(image.Value.ImageUrl)" class="d-block w-100" alt="Featured Game">
                 <div class="carousel-caption d-none d-md-block">
+
                     <h5>@image.Value.Game.GameName</h5>
                     <p>@image.Value.Game.Description</p>
                 </div>
@@ -71,7 +72,7 @@
 <div class="container mt-5">
     <h2>Top Categories</h2>
     <div class="row">
-        <!-- Example category section -->
+        
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
                 <div class="card-img-container">
@@ -91,6 +92,6 @@
                 </div>
             </div>
         </div>
-        <!-- Add more categories as needed -->
+        
     </div>
 </div>

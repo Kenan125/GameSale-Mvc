@@ -40,17 +40,17 @@
 
                         </td>
                         <td>
-                            @if (item.Images !=null && item.Images.Any())
-                            {
+                            <div class="card-img-container">
+                            <a href="@Url.Action("Details","Game", new {id= item.Id})">
+                                @if(item.Images !=null && item.Images.Any())
+                                {
+                                 
+                                    <img src="@Url.Content(item.Images.First().ImageUrl)" class="bd-placeholder-img card-img-top" width="100%" alt="@item.GameName" />
+                                    
+                                }
 
-                                <div class="d-flex flex-wrap">
-                                    @foreach(var image in item.Images)
-                                    {
-                                        <img src="@Url.Content(image.ImageUrl)" alt="@item.GameName" style="width:100px" ; height="auto" ; />
-
-                                    }
-                                </div>
-                            }
+                                </a>
+                            </div>
                         </td>
                         <td>
                             @(item.Price == 0.00m ? "Free" : item.Price.ToString("C"))
