@@ -56,6 +56,11 @@ namespace GameSale_DataAccess.Contexts
                 .WithMany()
                 .HasForeignKey(gsd => gsd.GameId);
 
+            modelBuilder.Entity<SystemRequirement>()
+                .HasOne(g => g.Game)
+                .WithMany()
+                .HasForeignKey(g => g.GameId);
+
             // Seed data for Category
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Action", Description = "Action games" },
@@ -75,16 +80,16 @@ namespace GameSale_DataAccess.Contexts
 
             // Seed data for Game
             modelBuilder.Entity<Game>().HasData(
-                new Game { Id = 1, GameName = "The Witcher 3: Wild Hunt", CategoryId = 3, Description = "An open-world RPG game", Price = 39.99M, Discount = 0, Developer = "CD Projekt Red", PublisherId = 1, ReleaseDate = new DateTime(2015, 5, 19), Platform = "PC" },
-                new Game { Id = 2, GameName = "Grand Theft Auto V", CategoryId = 1, Description = "An action-adventure game", Price = 29.99M, Discount = 20, Developer = "Rockstar North", PublisherId = 2, ReleaseDate = new DateTime(2013, 9, 17), Platform = "PC" },
-                new Game { Id = 3, GameName = "Cyberpunk 2077", CategoryId = 3, Description = "A futuristic RPG game", Price = 59.99M, Discount = 10, Developer = "CD Projekt Red", PublisherId = 1, ReleaseDate = new DateTime(2020, 12, 10), Platform = "PC" },
-                new Game { Id = 4, GameName = "Red Dead Redemption 2", CategoryId = 2, Description = "An open-world adventure game", Price = 49.99M, Discount = 0, Developer = "Rockstar Studios", PublisherId = 2, ReleaseDate = new DateTime(2018, 10, 26), Platform = "PC" },
-                new Game { Id = 5, GameName = "Civilization VI", CategoryId = 4, Description = "A strategy game", Price = 39.99M, Discount = 0, Developer = "Firaxis Games", PublisherId = 3, ReleaseDate = new DateTime(2016, 10, 21), Platform = "PC" },
-                new Game { Id = 6, GameName = "The Sims 4", CategoryId = 5, Description = "A life simulation game", Price = 49.99M, Discount = 0, Developer = "Maxis", PublisherId = 4, ReleaseDate = new DateTime(2014, 9, 2), Platform = "PC" },
-                new Game { Id = 7, GameName = "Dark Souls III", CategoryId = 3, Description = "An action RPG game", Price = 59.99M, Discount = 0, Developer = "FromSoftware", PublisherId = 5, ReleaseDate = new DateTime(2016, 4, 12), Platform = "PC" },
-                new Game { Id = 8, GameName = "Minecraft", CategoryId = 5, Description = "A sandbox game", Price = 26.95M, Discount = 0, Developer = "Mojang", PublisherId = 6, ReleaseDate = new DateTime(2011, 11, 18), Platform = "PC" },
-                new Game { Id = 9, GameName = "Fortnite", CategoryId = 1, Description = "A battle royale game", Price = 0M, Discount = 0, Developer = "Epic Games", PublisherId = 7, ReleaseDate = new DateTime(2017, 7, 21), Platform = "PC" },
-                new Game { Id = 10, GameName = "Stardew Valley", CategoryId = 2, Description = "A farming simulation game", Price = 14.99M, Discount = 0, Developer = "ConcernedApe", PublisherId = 8, ReleaseDate = new DateTime(2016, 2, 26), Platform = "PC" }
+                new Game { Id = 1, GameName = "The Witcher 3: Wild Hunt", CategoryId = 3, Description = "An open-world RPG game", Price = 39.99M, Discount = 0, Developer = "CD Projekt Red", PublisherId = 1, CreatedDate = new DateTime(2015, 5, 19), Platform = "PC" },
+                new Game { Id = 2, GameName = "Grand Theft Auto V", CategoryId = 1, Description = "An action-adventure game", Price = 29.99M, Discount = 20, Developer = "Rockstar North", PublisherId = 2, CreatedDate = new DateTime(2013, 9, 17), Platform = "PC" },
+                new Game { Id = 3, GameName = "Cyberpunk 2077", CategoryId = 3, Description = "A futuristic RPG game", Price = 59.99M, Discount = 10, Developer = "CD Projekt Red", PublisherId = 1, CreatedDate = new DateTime(2020, 12, 10), Platform = "PC" },
+                new Game { Id = 4, GameName = "Red Dead Redemption 2", CategoryId = 2, Description = "An open-world adventure game", Price = 49.99M, Discount = 0, Developer = "Rockstar Studios", PublisherId = 2, CreatedDate = new DateTime(2018, 10, 26), Platform = "PC" },
+                new Game { Id = 5, GameName = "Civilization VI", CategoryId = 4, Description = "A strategy game", Price = 39.99M, Discount = 0, Developer = "Firaxis Games", PublisherId = 3, CreatedDate = new DateTime(2016, 10, 21), Platform = "PC" },
+                new Game { Id = 6, GameName = "The Sims 4", CategoryId = 5, Description = "A life simulation game", Price = 49.99M, Discount = 0, Developer = "Maxis", PublisherId = 4, CreatedDate = new DateTime(2014, 9, 2), Platform = "PC" },
+                new Game { Id = 7, GameName = "Dark Souls III", CategoryId = 3, Description = "An action RPG game", Price = 59.99M, Discount = 0, Developer = "FromSoftware", PublisherId = 5, CreatedDate = new DateTime(2016, 4, 12), Platform = "PC" },
+                new Game { Id = 8, GameName = "Minecraft", CategoryId = 5, Description = "A sandbox game", Price = 26.95M, Discount = 0, Developer = "Mojang", PublisherId = 6, CreatedDate = new DateTime(2011, 11, 18), Platform = "PC" },
+                new Game { Id = 9, GameName = "Fortnite", CategoryId = 1, Description = "A battle royale game", Price = 0M, Discount = 0, Developer = "Epic Games", PublisherId = 7, CreatedDate = new DateTime(2017, 7, 21), Platform = "PC" },
+                new Game { Id = 10, GameName = "Stardew Valley", CategoryId = 2, Description = "A farming simulation game", Price = 14.99M, Discount = 0, Developer = "ConcernedApe", PublisherId = 8, CreatedDate = new DateTime(2016, 2, 26), Platform = "PC" }
             );
 
             // Seed data for Publisher

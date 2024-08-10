@@ -14,10 +14,10 @@ namespace GameSale_Mvc.Controllers
         }
         public IActionResult Index()
         {
-            var games = unitOfWork.Game.GetAllWithImages().ToList();
+            //var games = unitOfWork.Game.GetAllWithImages().ToList();
             //var games = unitOfWork.Game.GetAll();
 
-            return View(games);
+            return View();
         }
         private List<Game> GetRandomGames(List<Game> games, int count)
         {

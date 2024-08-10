@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameSale_Entity.Entities
+namespace GameSale_Entity.Entities 
 {
-    public class Image
+    public class Image : BaseEntity
     {
-        public int Id { get; set; }
+        
         public string Name { get; set; }
         public string ImageUrl { get; set; }
         public int GameId { get; set; }

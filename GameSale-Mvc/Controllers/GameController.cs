@@ -11,29 +11,12 @@ namespace GameSale_Mvc.Controllers
         {
             this.unitOfWork = unitOfWork;
         }
-        /*public IActionResult Details(int id) 
-        {
-            var game = unitOfWork.Game.GetbyId(id);
-            if (game == null) 
-            {
-                return NotFound();
-            
-            }
-            return View(game);
-
         
-        }*/
-
-        /*public IActionResult Search() 
-        {
-            //var result = unitOfWork.Game.Get(g => g.GameName.Contains(query));
-            return View();
-        }*/
 
         public IActionResult Index()
         {
-            var result = unitOfWork.Game.GetAll();
-            return View(result);
+            //var result = unitOfWork.();
+            return View();
         }
     }
 }

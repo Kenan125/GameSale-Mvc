@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GameSale_Entity.Entities
 {
-    public class Review
+    public class Review : BaseEntity
     {
-        public int Id { get; set; }
+        
         public int GameId { get; set; }
         public int CustomerId { get; set; }
 
@@ -13,7 +13,6 @@ namespace GameSale_Entity.Entities
         [Required] // Rating zorunlu alan
         public int Rating { get; set; }
         public string CustomerReview { get; set; }
-        public DateTime ReviewDate { get; set; }
 
 
         [ForeignKey("GameId")]

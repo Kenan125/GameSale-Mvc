@@ -4,7 +4,7 @@ using GameSale_Entity.Interfaces;
 
 namespace GameSale_DataAccess.Repositories
 {
-    public class SystemRepository : GenericRepository<SystemRequirement>, ISystemRepository
+    public class SystemRepository : GenericRepository<SystemRequirement>//, ISystemRequirementRepository
     {
         private readonly GameSaleDb db;
 

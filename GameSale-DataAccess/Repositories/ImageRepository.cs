@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GameSale_DataAccess.Repositories
 {
-    public class ImageRepository : GenericRepository<Image>, IImageRepository
+    public class ImageRepository : GenericRepository<Image>//, IImageRepository
     {
         private readonly GameSaleDb db;
 

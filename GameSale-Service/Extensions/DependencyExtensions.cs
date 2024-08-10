@@ -1,6 +1,12 @@
 ﻿using GameSale_DataAccess.Contexts;
 using GameSale_DataAccess.Identity;
+using GameSale_DataAccess.Repositories;
+using GameSale_Entity.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using GameSale_Service.Mapping;
+using GameSale_Entity.UnitOfWorks;
+using GameSale_DataAccess.UnitOfWorks;
+using GameSale_Service.Services;
 
 namespace GameSale_Service.Extensions
 {
@@ -21,6 +27,9 @@ namespace GameSale_Service.Extensions
                     opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
                 }
                 ).AddEntityFrameworkStores<GameSaleDb>();
-        }
+            services.AddScoped<IGameRepository, GameService>();
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
+			services.AddAutoMapper(typeof(MappingProfile));
+		}
     }
 }

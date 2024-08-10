@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GameSale_DataAccess.Repositories
 {
-    public class PublisherRepository : GenericRepository<Publisher>, IPublisherRepository
+    public class PublisherRepository : GenericRepository<Publisher>//, IPublisherRepository
     {
         private readonly GameSaleDb db;
 

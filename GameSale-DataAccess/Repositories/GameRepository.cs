@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GameSale_DataAccess.Repositories
 {
-    public class GameRepository : GenericRepository<Game>, IGameRepository
+    public class GameRepository : GenericRepository<Game>//, IGameRepository
     {
         private readonly GameSaleDb db;
 

@@ -4,7 +4,10 @@ namespace GameSale_Entity.UnitOfWorks
 {
     public interface IUnitOfWork : IDisposable
     {
-        IGameRepository Game { get; }
+        IRepository<T> GetRepository<T>() where T : class;
+        void Commit();
+        void CommitAsync();
+        /*IGameRepository Game { get; }
         ICustomerRepository Customer { get; }
         ICategoryRepository Category { get; }
         IGameSaleDetailRepository GameSaleDetail { get; }
@@ -13,6 +16,6 @@ namespace GameSale_Entity.UnitOfWorks
         ISystemRepository System { get; }
         IPublisherRepository Publisher { get; }
         IImageRepository Image { get; }
-        void Save();
+        void Save();*/
     }
 }
