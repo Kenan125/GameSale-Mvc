@@ -2,10 +2,10 @@
 
 namespace GameSale_Entity.Entities
 {
-    public class GameSale
-    {
-        public int Id { get; set; }
-        public DateTime Date { get; set; } = DateTime.Now;
+    public class GameSale : BaseEntity
+	{
+        
+        
         public int CustomerId { get; set; }
         public int TotalQuantity { get; set; }
         public decimal TotalPrice { get; set; }

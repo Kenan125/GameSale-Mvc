@@ -1,6 +1,6 @@
 ﻿namespace GameSale_Entity.Entities
 {
-    public class Game
+    public class Game: BaseEntity
     {
         public int Id { get; set; }
         public string GameName { get; set; }
@@ -17,7 +17,7 @@
 
         public string Developer { get; set; }
         public int PublisherId { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        
         public string Platform { get; set; }
 
 

@@ -3,10 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GameSale_Entity.Entities
 {
-    public class SystemRequirement
-    {
-        [Key]
-        public int Id { get; set; }
+    public class SystemRequirement : BaseEntity
+	{
+        
         [Required]
         public string OS { get; set; }
         [Required]
@@ -22,7 +21,7 @@ namespace GameSale_Entity.Entities
         [Required]
         public int GameId { get; set; }
 
-        [ForeignKey("GameId")]
+        
         public virtual Game Game { get; set; }
     }
 }

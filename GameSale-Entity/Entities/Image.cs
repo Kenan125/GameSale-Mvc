@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GameSale_Entity.Entities
 {
-    public class Image
-    {
-        public int Id { get; set; }
+    public class Image : BaseEntity
+	{
+        
         public string Name { get; set; }
         public string ImageUrl { get; set; }
         public int GameId { get; set; }
