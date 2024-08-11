@@ -19,10 +19,6 @@ namespace GameSale_Mvc.Controllers
 
             return View(games);
         }
-        private List<Game> GetRandomGames(List<Game> games, int count)
-        {
-            var random = new Random();
-            return games.OrderBy(x => random.Next()).Take(count).ToList();
-        }
+        
     }
 }

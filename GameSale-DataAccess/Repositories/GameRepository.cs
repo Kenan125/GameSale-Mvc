@@ -15,7 +15,9 @@ namespace GameSale_DataAccess.Repositories
         }
         public IEnumerable<Game> GetAllWithImages()
         {
-            return db.Games.Include(g => g.Images).ToList();
+            return db.Games.Include(g => g.Images)
+                .Include(g=>g.Publisher)
+                .ToList();
         }
     }
 }

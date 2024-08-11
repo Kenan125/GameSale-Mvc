@@ -14,6 +14,6 @@ namespace GameSale_Entity.ViewModels
 		public decimal UnitPrice { get; set; }
 		public int Quantity { get; set; }
 
-		public string GameName { get; set; } // Mapped from Game
+		
 	}
 }

@@ -14,7 +14,6 @@ namespace GameSale_Entity.ViewModels
 		public int Rating { get; set; }
 		public string CustomerReview { get; set; }
 
-		public string GameName { get; set; } // Mapped from Game
-		public string CustomerName { get; set; } // Mapped from Customer
+		
 	}
 }

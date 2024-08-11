@@ -12,6 +12,6 @@ namespace GameSale_Entity.ViewModels
 		public string Name { get; set; }
 		public string Description { get; set; }
 
-        public ICollection<GameViewModel> Games { get; set; }
+        
     }
 }

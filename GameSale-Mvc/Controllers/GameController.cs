@@ -1,5 +1,7 @@
-﻿using GameSale_Entity.UnitOfWorks;
+﻿using GameSale_Entity.Entities;
+using GameSale_Entity.UnitOfWorks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GameSale_Mvc.Controllers
 {
@@ -11,29 +13,13 @@ namespace GameSale_Mvc.Controllers
         {
             this.unitOfWork = unitOfWork;
         }
-        /*public IActionResult Details(int id) 
-        {
-            var game = unitOfWork.Game.GetbyId(id);
-            if (game == null) 
-            {
-                return NotFound();
-            
-            }
-            return View(game);
-
         
-        }*/
-
-        /*public IActionResult Search() 
-        {
-            //var result = unitOfWork.Game.Get(g => g.GameName.Contains(query));
-            return View();
-        }*/
-
         public IActionResult Index()
         {
-            var result = unitOfWork.Game.GetAll();
+            var result = unitOfWork.Game.GetAllWithImages();
             return View(result);
         }
+        
+
     }
 }

@@ -27,13 +27,13 @@ namespace GameSale_DataAccess.Repositories
         public void Add(T entity)
         {
             _dbSet.Add(entity);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
 
         public void Delete(T entity)
         {
             _dbSet.Remove(entity);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
 
         public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter)
@@ -45,7 +45,7 @@ namespace GameSale_DataAccess.Repositories
         public void Update(T entity)
         {
             _dbSet.Update(entity);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
     }
 }

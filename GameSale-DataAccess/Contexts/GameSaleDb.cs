@@ -21,13 +21,25 @@ namespace GameSale_DataAccess.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Game>()
+            .Property(g => g.Price)
+            .HasColumnType("decimal(18, 2)");
+
+            modelBuilder.Entity<GameSale>()
+                .Property(gs => gs.TotalPrice)
+                .HasColumnType("decimal(18, 2)");
+
+            modelBuilder.Entity<GameSaleDetail>()
+                .Property(gsd => gsd.UnitPrice)
+                .HasColumnType("decimal(18, 2)");
+
             modelBuilder.Entity<Game>().Property(g => g.GameName).HasMaxLength(100);
             modelBuilder.Entity<Category>().Property(g => g.Name).HasMaxLength(100);
 
-            modelBuilder.Entity<Image>()
-                .HasOne(g => g.Game)
-                .WithMany(i => i.Images)
-                .HasForeignKey(g => g.GameId);
+            modelBuilder.Entity<Game>()
+            .HasMany(g => g.Images)
+            .WithOne(i => i.Game)
+            .HasForeignKey(i => i.GameId);
 
             modelBuilder.Entity<Customer>().Property(m => m.ProfilePicture).HasDefaultValue("/images/customerpic.jpg");
 

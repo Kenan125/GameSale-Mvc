@@ -15,11 +15,7 @@ namespace GameSale_Entity.ViewModels
         public int Discount { get; set; }
 		public string Developer { get; set; }		
 		public string Platform { get; set; }
-
-        //AutoMapper
-        public string CategoryName { get; set; }
-        public string PublisherName { get; set; }
-        //list of image urls
-        public ICollection<string> ImageUrls { get; set; }
+        
+        
     }
 }
