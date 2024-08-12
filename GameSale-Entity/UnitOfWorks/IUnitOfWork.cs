@@ -17,5 +17,6 @@ namespace GameSale_Entity.UnitOfWorks
         IReviewRepository Review { get; }
         ISystemRepository System { get; }
         void Save();
+        void SaveChanges();
     }
 }

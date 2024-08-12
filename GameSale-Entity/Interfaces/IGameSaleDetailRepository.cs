@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace GameSale_Entity.Interfaces
 {
-    public interface IGameSaleDetailRepository:IGenericRepository<GameSaleDetail>
+    public interface IGameSaleDetailRepository : IGenericRepository<GameSaleDetail>
     {
+        void Add(global::GameSale_Mvc.Controllers.UserController user1);
+        Task GetAllAsync();
     }
 }
