@@ -19,18 +19,18 @@ namespace GameSale_Mvc.Controllers
 
         public IActionResult Index()
         {
-            var result = userRepository.GetAll();
+            var result = unitOfWork.Customer.GetAll();
             return View(result);
         }
 
-        private string? GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        //private string? GetAll()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public IActionResult Details(int id)
         {
-            var user = userRepository.GetById(id);
+            var user = unitOfWork.Customer.GetbyId(id);
             if (user == null)
             {
                 return NotFound();
@@ -38,10 +38,7 @@ namespace GameSale_Mvc.Controllers
             return View(user);
         }
 
-        private string? GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public IActionResult Create()
         {
@@ -67,7 +64,7 @@ namespace GameSale_Mvc.Controllers
 
         public IActionResult Edit(int id)
         {
-            var user = userRepository.GetById(id);
+            var user = unitOfWork.Customer.GetbyId(id);
             if (user == null)
             {
                 return NotFound();
@@ -92,21 +89,18 @@ namespace GameSale_Mvc.Controllers
             throw new NotImplementedException();
         }
 
-        public IActionResult Delete(int id)
-        {
-            var user = userRepository.GetById(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            userRepository.Delete(user);
-            unitOfWork.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //public IActionResult Delete(Customer customer)
+        //{
+        //    var user = unitOfWork.Customer.Delete(customer);
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    userRepository.Delete(id);
+        //    unitOfWork.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
-        private void Delete(string user)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
